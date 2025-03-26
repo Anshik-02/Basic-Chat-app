@@ -58,6 +58,7 @@ function Input({
         onClick={(e) => {
           e.preventDefault();
           submit();
+          setChat("")
         }}
       >
         Send
