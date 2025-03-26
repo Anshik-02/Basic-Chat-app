@@ -21,7 +21,7 @@ const [chat, setChat] = useState<string>("");
       socket = io("https://basic-chat-app-f5gb.onrender.com", { transports: ["websocket", "polling"] });
     }
   socket.on("chats",(data:any)=>{
-    console.log(data)
+ 
     setMessage((e)=>[...e,data])
 
   })
@@ -30,7 +30,7 @@ socket.emit("user dissconneted", user.current);
     return () => {
       if (socket) {
         socket.disconnect();
-        console.log("Socket disconnected");
+
       }
     };
   }, []);

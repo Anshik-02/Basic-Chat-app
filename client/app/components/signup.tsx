@@ -5,9 +5,10 @@ import { io, Socket } from 'socket.io-client'
 export default function Signup({user,setSignedIn,setUserValue}:{user:any,setSignedIn:any,setUserValue:any}) {
 const socket = io("https://basic-chat-app-f5gb.onrender.com", { transports: ["websocket", "polling"] });
 const submitHandler=()=>{
-console.log(user)
-setSignedIn(true)
+
 socket.emit("user joined", user.current);
+
+setSignedIn(true)
 }
 
 const onChangeHandler=(e:any)=>{
