@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 interface Msg {
   chat: string;
@@ -20,16 +20,26 @@ export default function Chats({
   chat: string;
   userValue: string;
 }) {
+  const chatContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+    }
+  }, [message]); 
+
   return (
-    <div className="bg-[#DBD8AE] h-screen w-screen flex flex-col md:justify-center md:items-center ">
-      
-      <div className="md:w-6xl md:min-h-9/12 h-[80vh] w-full rounded-2xl container bg-[#EAF4D3] overflow-y-auto md:mb-10 mt-5 border border-black p-4">
+    <div className="bg-[#DBD8AE] h-screen w-screen flex flex-col items-center p-2 md:p-4">
+
+      <div
+        ref={chatContainerRef}
+        className="w-full max-w-4xl flex-1 h-[80vh] rounded-2xl bg-[#EAF4D3] overflow-y-auto border border-black p-4"
+      >
         {message.map((msg, index) => (
           <Chat key={index} msg={msg.chat} user={msg.user} userValue={userValue} />
         ))}
       </div>
 
-   
       <Input setChat={setChat} submit={submit} chat={chat} />
     </div>
   );
@@ -45,20 +55,27 @@ function Input({
   chat: string;
 }) {
   return (
-    <div className="flex w-full md:w-6xl px-4 py-2 gap-2">
+    <div className="flex w-full max-w-4xl px-4 py-2 gap-2">
       <input
         className="bg-[#EAF4D3] flex-1 text-lg text-black rounded-2xl p-3 focus:outline-none shadow-md"
         type="text"
         placeholder="Type a message..."
         value={chat}
-        onChange={(e) => setChat(e.target.value)}
+        onChange={(e) => setChat(e.target.value )}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" && chat.trim() !== "") {
+            e.preventDefault();
+            submit();
+            setChat("");
+          }
+        }}
       />
       <button
         className="rounded-2xl bg-white px-6 py-3 text-black font-semibold cursor-pointer hover:brightness-90 shadow-md transition"
         onClick={(e) => {
           e.preventDefault();
           submit();
-          setChat("")
+          setChat("");
         }}
       >
         Send
