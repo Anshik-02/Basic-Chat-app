@@ -55,7 +55,7 @@ function Input({
   chat: string;
 }) {
   return (
-    <div className="flex w-full max-w-4xl px-4 py-2 gap-2">
+    <div className="flex w-full items-center max-w-4xl container px-4 py-2 gap-2">
       <input
         className="bg-[#EAF4D3] flex-1 text-lg text-black rounded-2xl p-3 focus:outline-none shadow-md"
         type="text"
@@ -70,8 +70,8 @@ function Input({
           }
         }}
       />
-      <button
-        className="rounded-2xl bg-white px-6 py-3 text-black font-semibold cursor-pointer hover:brightness-90 shadow-md transition"
+      <button 
+        className="rounded-2xl bg-white px-2 py-3 container sm:w-19 md:w-19 lg:19 text-black font-semibold cursor-pointer hover:brightness-90 shadow-md transition"
         onClick={(e) => {
           e.preventDefault();
           submit();
@@ -97,7 +97,7 @@ function Chat({ msg, user, userValue }: { msg: string; user: string; userValue: 
 
   return (
     <div className={`flex ${user === 'System' ? "!justify-center" : user === userValue ? "justify-end" : "justify-start"} `}>
-      <div className="rounded-xl text-black font-medium text-lg m-2 bg-[#DBD8AE] px-5 py-2 shadow-md max-w-[85%] md:max-w-[60%]">
+      <div className="rounded-xl text-black font-medium text-lg m-2 bg-[#DBD8AE] px-5 py-2 shadow-md max-w-[75%] md:max-w-[60%]">
         <p style={{ color: userColor }} className="font-bold">
           {user !== "System" && user}
         </p>
