@@ -71,7 +71,7 @@ function Input({
         }}
       />
       <button 
-        className="rounded-2xl bg-white px-2 mr-3 sm:mr-0 py-3  container sm:w-19 md:w-19 lg:19 text-black font-semibold cursor-pointer hover:brightness-90 shadow-md transition"
+        className="rounded-2xl bg-white px-2 text-xs sm:mr-0 py-4 md:text-lg md:py-2.5 container sm:w-19 md:w-19 lg:19 text-black font-semibold cursor-pointer hover:brightness-90 shadow-md transition"
         onClick={(e) => {
           e.preventDefault();
           submit();
