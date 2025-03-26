@@ -57,7 +57,7 @@ function Input({
   return (
     <div className="flex w-full items-center max-w-4xl container px-4 py-2 gap-2">
       <input
-        className="bg-[#EAF4D3] flex-1 text-lg text-black rounded-2xl p-3 focus:outline-none shadow-md"
+        className="bg-[#EAF4D3] flex-1/12  text-black rounded-2xl p-3 focus:outline-none shadow-md"
         type="text"
         placeholder="Type a message..."
         value={chat}
@@ -71,7 +71,7 @@ function Input({
         }}
       />
       <button 
-        className="rounded-2xl bg-white px-2 py-3 container sm:w-19 md:w-19 lg:19 text-black font-semibold cursor-pointer hover:brightness-90 shadow-md transition"
+        className="rounded-2xl bg-white px-2 mr-3 sm:mr-0 py-3  container sm:w-19 md:w-19 lg:19 text-black font-semibold cursor-pointer hover:brightness-90 shadow-md transition"
         onClick={(e) => {
           e.preventDefault();
           submit();
