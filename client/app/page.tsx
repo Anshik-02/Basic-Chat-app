@@ -18,7 +18,7 @@ const [chat, setChat] = useState<string>("");
 
     useEffect(() => {
     if (!socket) {
-      socket = io("http://192.168.1.9:3001", { transports: ["websocket", "polling"] });
+      socket = io("https://basic-chat-app-f5gb.onrender.com", { transports: ["websocket", "polling"] });
     }
   socket.on("chats",(data:any)=>{
     console.log(data)

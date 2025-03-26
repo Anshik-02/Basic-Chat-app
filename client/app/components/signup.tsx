@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { io, Socket } from 'socket.io-client'
 
 export default function Signup({user,setSignedIn,setUserValue}:{user:any,setSignedIn:any,setUserValue:any}) {
-const socket = io("http://192.168.1.9:3001", { transports: ["websocket", "polling"] });
+const socket = io("https://basic-chat-app-f5gb.onrender.com", { transports: ["websocket", "polling"] });
 const submitHandler=()=>{
 console.log(user)
 setSignedIn(true)
